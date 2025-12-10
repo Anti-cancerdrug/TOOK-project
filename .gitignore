@@ -2,9 +2,6 @@
 config/db.php
 config/constants.php
 
-# test / local files
-db_test.php
-
 # system
 .DS_Store
 Thumbs.db
