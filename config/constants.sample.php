@@ -4,7 +4,7 @@ define('SITE_NAME', 'TOOK');
 define('SITE_SLOGAN', '툭, 던지듯 나오는 세계관의 시작점.');
 
 // 경로 설정
-define('BASE_URL', 'http://localhost/took-project');  // 실제 경로에 맞게 수정하세요
+define('BASE_URL', 'http://localhost/took-project');  // 로컬 개발 기준. 배포 시 환경에 맞게 변경
 define('UPLOAD_PATH', __DIR__ . '/../uploads/');      // 업로드 파일 저장 경로
 define('ASSET_PATH', BASE_URL . '/assets');
 
