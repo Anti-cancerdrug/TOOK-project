@@ -1,0 +1,93 @@
++-------------------+
+| Tables_in_took_db |
++-------------------+
+| content           |
+| content_type      |
+| creator           |
+| genre             |
+| user              |
+| world             |
+| world_admin       |
+| world_genre       |
++-------------------+
+
+
+content table
++----------------+--------------+------+-----+---------------------+-------------------------------+
+| Field          | Type         | Null | Key | Default             | Extra                         |
++----------------+--------------+------+-----+---------------------+-------------------------------+
+| cid            | int(11)      | NO   | PRI | NULL                | auto_increment                |
+| wid            | int(11)      | NO   | MUL | NULL                |                               |
+| uid            | int(11)      | NO   | MUL | NULL                |                               |
+| c_type_id      | tinyint(4)   | NO   | MUL | NULL                |                               |
+| title          | varchar(255) | NO   |     | NULL                |                               |
+| description    | text         | YES  |     | NULL                |                               |
+| thumbnail_path | varchar(255) | NO   |     | NULL                |                               |
+| created_at     | datetime     | NO   |     | current_timestamp() |                               |
+| updated_at     | datetime     | NO   |     | current_timestamp() | on update current_timestamp() |
++----------------+--------------+------+-----+---------------------+-------------------------------+
+
+content_type table
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint(4)  | NO   | PRI | NULL    |       |
+| type  | varchar(50) | NO   | UNI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+
+creator table
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| uid   | int(11) | NO   | PRI | NULL    |       |
++-------+---------+------+-----+---------+-------+
+
+genre table
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(100) | NO   | UNI | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+
+user table
++------------+--------------+------+-----+---------------------+-------------------------------+
+| Field      | Type         | Null | Key | Default             | Extra                         |
++------------+--------------+------+-----+---------------------+-------------------------------+
+| uid        | int(11)      | NO   | PRI | NULL                | auto_increment                |
+| email      | varchar(255) | NO   | UNI | NULL                |                               |
+| password   | varchar(255) | NO   |     | NULL                |                               |
+| nickname   | varchar(100) | NO   | UNI | NULL                |                               |
+| created_at | datetime     | NO   |     | current_timestamp() |                               |
+| updated_at | datetime     | NO   |     | current_timestamp() | on update current_timestamp() |
++------------+--------------+------+-----+---------------------+-------------------------------+
+
+world table
++-------------+--------------+------+-----+---------------------+-------------------------------+
+| Field       | Type         | Null | Key | Default             | Extra                         |
++-------------+--------------+------+-----+---------------------+-------------------------------+
+| wid         | int(11)      | NO   | PRI | NULL                | auto_increment                |
+| title       | varchar(255) | NO   |     | NULL                |                               |
+| description | text         | YES  |     | NULL                |                               |
+| created_at  | datetime     | NO   |     | current_timestamp() |                               |
+| updated_at  | datetime     | NO   |     | current_timestamp() | on update current_timestamp() |
++-------------+--------------+------+-----+---------------------+-------------------------------+
+
+world_admin table
++------------+------------+------+-----+---------------------+-------------------------------+
+| Field      | Type       | Null | Key | Default             | Extra                         |
++------------+------------+------+-----+---------------------+-------------------------------+
+| wid        | int(11)    | NO   | PRI | NULL                |                               |
+| uid        | int(11)    | NO   | PRI | NULL                |                               |
+| role       | tinyint(4) | NO   |     | 3                   |                               |
+| created_at | datetime   | NO   |     | current_timestamp() |                               |
+| updated_at | datetime   | NO   |     | current_timestamp() | on update current_timestamp() |
++------------+------------+------+-----+---------------------+-------------------------------+
+
+world_genre table
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| wid   | int(11) | NO   | PRI | NULL    |       |
+| gid   | int(11) | NO   | PRI | NULL    |       |
++-------+---------+------+-----+---------+-------+
